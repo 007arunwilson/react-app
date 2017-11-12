@@ -35,8 +35,8 @@ class App extends Component {
 class Square extends React.Component {
   render() {
     return (
-      <button className="square">
-        {/* TODO */}
+      <button data-squareid={this.props.value} className="square" onClick={(e) => alert(e)} >
+        
       </button>
     );
   }
@@ -45,8 +45,8 @@ class Square extends React.Component {
 
 class Board extends Component {
 
-  renderSquare(){
-    return <Square />;
+  renderSquare(i){
+    return <Square value={i} />;
   }
 
   render() {
