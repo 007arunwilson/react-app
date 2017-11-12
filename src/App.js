@@ -11,47 +11,70 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          A React Tick Tac Toe game.
         </p>
-        <Sociallinks/>
+
+        <hr class="hr-seperator" />
+
+        <div className="game">
+          <div className="game-board">
+            <Board />
+          </div>
+          <div className="game-info">
+            <div>{/* status */}</div>
+            <ol>{/* TODO */}</ol>
+          </div>
+        </div>
+
       </div>
     );
   }
 }
 
 
-class Sociallinks extends React.Component {
-
-  render(){
-
-     var social_link_values = {
-         data: 
-         [
-            {
-               "link":"http://web.whatsapp.com",
-               "text":"Whatspp"
-            },
-            {
-               "link":"http://instagram.com",
-               "text":"Instagram"
-            },
-            {
-               "link":"http://facebook.com",
-               "text":"Facebook"
-            }
-         ]
-      }
-
-    return React.createElement('div', {className: 'shopping-list'},
-      React.createElement('h1',[],'Social Links'),
-      React.createElement('ul',[],
-       social_link_values.data.map(function(element_,i) {
-        return React.createElement('div', {className: 'social-link-li'},element_.text)})
-      )
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {/* TODO */}
+      </button>
     );
+  }
+}
 
+
+class Board extends Component {
+
+  renderSquare(){
+    return <Square />;
   }
 
-}
+  render() {
+
+    const status = 'Next player: X';
+
+    return (
+          <div>
+            <div className="status">{status}</div>
+            <div className="board-row">
+              {this.renderSquare(0)}
+              {this.renderSquare(1)}
+              {this.renderSquare(2)}
+            </div>
+            <div className="board-row">
+              {this.renderSquare(3)}
+              {this.renderSquare(4)}
+              {this.renderSquare(5)}
+            </div>
+            <div className="board-row">
+              {this.renderSquare(6)}
+              {this.renderSquare(7)}
+              {this.renderSquare(8)}
+            </div>
+          </div>
+        );
+
+    }
+  }
 
 export default App;
